@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index Page</title>
+    @*required:false - makes optional*@
+    @RenderSection("headSec", required: false);
+</head>
+<body>
+    <div>
+        <table border="2" cellpadding="5" cellspacing="5" align="center" width="800">
+            <tr style="background-color:blueviolet; text-align:center;">
+                <td colspan="2">Demo | Nagpur</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr style="background-color:azure; text-align:center;">
+                <td colspan="2">
+                    &copy; copyright 2022<br />
+                    Faculty | Cources | Projects | Developments
+                </td>
+            </tr>
+            <tr height="300" style="background-color:burlywood; text-align:center;">
+                <td width="250">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Home")</li>
+                        <li>@Html.ActionLink("About", "About")</li>
+                        <li>@Html.ActionLink("Contact", "Contact")</li>
+                    </ul>
+                </td>
+                <td>
+                    <div style="height:200px">
+                        @RenderBody()
+                    </div>
+                    <div style="height:100px">
+                        @RenderSection("adsection", required: false)
+                    </div>
+                    <div style="height:100px">
+                        @if (IsSectionDefined("Adsec"))
+                        {
+                            @RenderSection("Adsec", required: false)
+                        }
+                        else
+                        {
+                            <div style="align-content : center; background-color:yellow">
+                                <i>Ads Here ....</i>
+                            </div>
+                        }
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
